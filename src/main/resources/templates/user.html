@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User!</title>
+</head>
+<body>
+<table style="border: solid" th:border="1">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>second name</th>
+        <th>age</th>
+        <th>occupation</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <!--/*@thymesVar id="user" type="ru.kata.spring.boot_security.demo.model.User"*/-->
+        <td th:utext="${user.getId()}"></td>
+        <td th:utext="${user.getFirstName()}"></td>
+        <td th:utext="${user.getLastName()}"></td>
+        <td th:utext="${user.getAge()}"></td>
+        <td th:utext="${user.getOccupation()}"></td>
+    </tr>
+    </tbody>
+</table>
+<form action="#" th:action="@{/logout}" method="get">
+    <input type="submit" value="exit"/>
+</form>
+</body>
+</html>

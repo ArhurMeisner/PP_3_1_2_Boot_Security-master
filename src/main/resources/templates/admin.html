@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+</head>
+<body>
+<table style="border: solid" th:border="1">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>username</th>
+        <th>name</th>
+        <th>second name</th>
+        <th>age</th>
+        <th>occupation</th>
+        <th>edit</th>
+        <th>delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!--/*@thymesVar id="user" type="ru.kata.spring.boot_security.demo.model.User"*/-->
+    <tr th:each="user: ${users}">
+        <td th:utext="${user.getId}"></td>
+        <td th:utext="${user.getUsername()}"></td>
+        <td th:utext="${user.getFirstName()}"></td>
+        <td th:utext="${user.getLastName()}"></td>
+        <td th:utext="${user.getAge()}"></td>
+        <td th:utext="${user.getOccupation()}"></td>
+        <td>
+            <a th:href="@{/admin/edit/{id}(id=${user.getId()})}">Edit</a>
+        </td>
+        <td>
+            <form th:method="DELETE" th:action="@{/admin/delete/{id}(id=${user.getId()})}"><input type="submit" value="Delete"/></form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</div>
+<br>
+<form action="#" th:action="@{/admin/new}" method="get">
+    <input type="submit" value="Create"/>
+</form>
+<br>
+<br>
+<form action="#" th:action="@{/logout}" method="get">
+    <input type="submit" value="exit"/>
+</form>
+</div>
+
+
+</body>
+</html>

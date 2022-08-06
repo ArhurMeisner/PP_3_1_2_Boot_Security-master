@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+
+<!--/*@thymesVar id="user" type="ru.kata.spring.boot_security.demo.model.User"*/-->
+<form th:method="PATCH" th:action="@{/admin/edit/{id} (id=${user.getId()})}" th:object="${user}">
+
+  <label for="firstname">Enter login: </label>
+  <input type="text" th:field="*{username}" id="username"/>
+  <br/>
+
+  <label for="firstname">Enter password: </label>
+  <input type="text" th:field="*{password}" id="password"/>
+  <br/>
+
+  <label for="firstname">Enter firstname: </label>
+  <input type="text" th:field="*{firstName}" id="firstname"/>
+  <br/>
+
+  <label for="lastname">Enter lastname: </label>
+  <input type="text" th:field="*{lastName}" id="lastname"/>
+  <br/>
+
+  <label for="age">Enter Age: </label>
+  <input type="text" th:field="*{age}" id="age"/>
+  <br/>
+
+  <label for="occupation">Enter Occupation: </label>
+  <input type="text" th:field="*{occupation}" id="occupation"/>
+  <br/>
+
+  <input type="submit" value="Update User"/>
+
+  <form action="#" th:action="@{/admin}" method="get">
+    <input type="submit" value="Back"/>
+  </form>
+  <br>
+  <form action="#" th:action="@{/logout}" method="get">
+    <input type="submit" value="exit"/>
+  </form>
+</body>
+</html>
